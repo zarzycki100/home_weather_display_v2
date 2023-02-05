@@ -2,6 +2,8 @@ from time import sleep
 
 from grove_rgb_lcd import *
 
+from Logger import Logger
+
 
 class LCDScreenService:
     def __init__(self):

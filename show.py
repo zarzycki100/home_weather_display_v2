@@ -1,5 +1,3 @@
-from time import sleep
-
 from LCDScreenService import LCDScreenService
 from SQLiteConnector import SQLiteConnector
 
