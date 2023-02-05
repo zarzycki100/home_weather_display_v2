@@ -1,4 +1,7 @@
 import sqlite3
+import os
+from dotenv import load_dotenv
+
 from sqlite3 import Error
 
 from MeasurementValueObject import MeasurementValueObject
@@ -7,9 +10,11 @@ from MeasurementValueObject import MeasurementValueObject
 class SQLiteConnector:
     connection = None
 
-    def __init__(self, db_name):
+    def __init__(self):
         try:
-            self.connection = sqlite3.connect(db_name)
+            load_dotenv()
+
+            self.connection = sqlite3.connect(os.getenv('SQLITE_DATABASE'))
         except Error as e:
             print(e)
 
