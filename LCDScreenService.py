@@ -16,7 +16,7 @@ class LCDScreenService:
 
             sleep(20)
         except (IOError, TypeError) as e:
-            print(str(e))
+            Logger.debug(e)
             setText("")
 
     def clear(self):
@@ -25,7 +25,7 @@ class LCDScreenService:
         sleep(20)
 
     def show_outside_measurement(self):
-        setText("outside \n weather!")
+        setText("outside \nweather!")
 
         sleep(20)
 

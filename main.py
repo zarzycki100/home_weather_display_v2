@@ -1,4 +1,5 @@
 from DHTSensorReader import DHTSensorReader
+from Logger import Logger
 from SQLiteConnector import SQLiteConnector
 
 dht_sensor_reader = DHTSensorReader()

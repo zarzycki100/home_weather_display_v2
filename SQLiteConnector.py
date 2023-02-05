@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 from sqlite3 import Error
 
+from Logger import Logger
 from MeasurementValueObject import MeasurementValueObject
 
 
@@ -16,7 +17,7 @@ class SQLiteConnector:
 
             self.connection = sqlite3.connect(os.getenv('SQLITE_DATABASE'))
         except Error as e:
-            print(e)
+            Logger.debug(e)
 
     def save_history(self, measurement):
         try:
@@ -27,7 +28,7 @@ class SQLiteConnector:
 
             return cur.lastrowid
         except Error as e:
-            print(e)
+            Logger.debug(e)
 
     def read_last_history(self):
         try:
@@ -37,5 +38,5 @@ class SQLiteConnector:
 
             return MeasurementValueObject(data)
         except Error as e:
-            print(e)
+            Logger.debug(e)
 

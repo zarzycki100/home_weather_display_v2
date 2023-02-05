@@ -1,6 +1,7 @@
 from grovepi import *
 from math import isnan
 
+from Logger import Logger
 from MeasurementValueObject import MeasurementValueObject
 
 
@@ -13,12 +14,11 @@ class DHTSensorReader:
         self.dht_sensor_type = 0  # use 0 for the blue-colored sensor and 1 for the white-colored sensor
 
     def measure_temperature_and_humidity(self):
-
         measurement = dht(self.dht_sensor_port, self.dht_sensor_type)
 
         if isnan(measurement[0]) is True or isnan(measurement[1]) is True:
             self.measure_temperature_and_humidity()
 
-        print("temp =", measurement[0], "\thumidity =", measurement[1], "%")
+        Logger.info("temp =" + str(measurement[0]) + "\thumidity =" + str(measurement[1]) + "%")
 
         return MeasurementValueObject(measurement)
