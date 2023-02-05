@@ -1,8 +1,7 @@
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
 class DHTSensorValueObject:
-
-    temperature = None
-    humidity = None
-
-    def __init__(self, temperature, humidity):
-        self.temperature = temperature
-        self.humidity = humidity
+    temperature: float
+    humidity: float
